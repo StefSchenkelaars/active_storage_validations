@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -18,6 +20,6 @@ class User < ApplicationRecord
 
   validates :avatar, attached: true, content_type: :png
   validates :photos, attached: true, content_type: ['image/png', 'image/jpg']
-  validates :image_regex, content_type: /\Aimage\/.*\z/
+  validates :image_regex, content_type: %r{\Aimage/.*\z}
   validates :conditional_image, attached: true, if: -> { name == 'Foo' }
 end

@@ -21,9 +21,7 @@ ActiveRecord::Schema.define do
     t.datetime :created_at, null: false
     t.index %i[key], name: :index_active_storage_blobs_on_key, unique: true
 
-    if Gem::Version.new(Rails.version) >= Gem::Version.new('6.1.0')
-      t.string :service_name, null: false
-    end
+    t.string :service_name, null: false if Gem::Version.new(Rails.version) >= Gem::Version.new('6.1.0')
   end
 
   if Gem::Version.new(Rails.version) >= Gem::Version.new('6.1.0')

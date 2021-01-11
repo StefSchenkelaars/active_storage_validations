@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class OnlyImage < ApplicationRecord
   has_one_attached :image
   validates :image, dimension: { width: { min: 100, max: 2000 }, height: { min: 100, max: 1500 } },
